@@ -51,7 +51,7 @@ body {
 }
 
 h1 {
-    font-size: 1.6em;
+    font-size: 1.5em;
     margin-bottom: 14px;
     animation: glow 2s infinite alternate;
 }
@@ -79,16 +79,21 @@ h1 {
     to { opacity: 1; }
 }
 
-/* music button */
-.music-btn {
-    margin-top: 16px;
-    padding: 6px 16px;
-    font-size: 0.75em;
-    background: rgba(255,255,255,0.12);
+/* buttons */
+.music-btn, .next-btn {
+    margin-top: 14px;
+    padding: 8px 20px;
+    font-size: 0.8em;
+    background: rgba(255,255,255,0.15);
     color: white;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.35);
     cursor: pointer;
+}
+
+.next-btn {
+    display: none;
+    margin-left: 8px;
 }
 
 /* heart */
@@ -115,25 +120,27 @@ h1 {
 <span class="dot" style="left:60%;animation-delay:1s"></span>
 <span class="dot" style="left:75%;animation-delay:4s"></span>
 <span class="dot" style="left:90%;animation-delay:7s"></span>
-<span class="dot" style="left:95%;animation-delay:9s"></span>
-<span class="dot" style="left:100%;animation-delay:11s"></span>
 
 <!-- audio -->
-<audio id="bgMusic" loop>
-    <source src="audio.mp3" type="audio/mpeg">
+<audio id="bgMusic" preload="auto" loop>
+    <source src="./audio.mp3" type="audio/mpeg">
 </audio>
 
 <div class="card">
-    <h1> Darling these are the little promises from me❤️❤️</h1>
+    <h1>Darling these are the little promises from me ❤️</h1>
 
-      <div class="promise">I promise to listen not just hear.</div>
+    <div class="promise">I promise to listen, not just hear.</div>
     <div class="promise">I promise to respect your dreams and your fears.</div>
     <div class="promise">I promise to choose you every single day.</div>
-   <div class="promise">I promise that I'll never get angry or annoyed at you.</div>
-<div class="promise">I promise that I'll never leave you in any situation .</div>
+    <div class="promise">I promise I’ll never get angry or annoyed at you.</div>
+    <div class="promise">I promise I’ll never leave you in any situation.</div>
 
-    <button class="music-btn" onclick="toggleMusic()">
-        Play Music
+    <button class="music-btn" onclick="toggleMusic()" id="musicBtn">
+        ▶ Play Music
+    </button>
+
+    <button class="next-btn" onclick="goNext()" id="nextBtn">
+        Next 💝
     </button>
 
     <div class="heart">❤️</div>
@@ -141,20 +148,28 @@ h1 {
 
 <script>
 const music = document.getElementById("bgMusic");
-music.volume = 0.5;
+const musicBtn = document.getElementById("musicBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-// try autoplay
-music.play().catch(() => {});
+music.volume = 0.5;
 
 function toggleMusic() {
     if (music.paused) {
         music.play();
+        musicBtn.innerText = "⏸ Pause Music";
+        nextBtn.style.display = "inline-block";
     } else {
         music.pause();
+        musicBtn.innerText = "▶ Play Music";
     }
+}
+
+function goNext(){
+    window.location.href = "https://shobithravish1-bit.github.io/wishes/"; 
 }
 </script>
 
 </body>
 </html>
+
 
