@@ -18,6 +18,7 @@ body {
     color: #fff;
 }
 
+/* floating soft dots */
 .dot {
     position: absolute;
     width: 5px;
@@ -78,21 +79,16 @@ h1 {
     to { opacity: 1; }
 }
 
-/* buttons */
-.music-btn, .next-btn {
-    margin-top: 14px;
-    padding: 8px 20px;
-    font-size: 0.8em;
+/* next button */
+.next-btn {
+    margin-top: 18px;
+    padding: 10px 26px;
+    font-size: 0.9em;
     background: rgba(255,255,255,0.15);
     color: white;
-    border-radius: 20px;
+    border-radius: 22px;
     border: 1px solid rgba(255,255,255,0.35);
     cursor: pointer;
-}
-
-.next-btn {
-    display: none;
-    margin-left: 8px;
 }
 
 /* heart */
@@ -120,11 +116,6 @@ h1 {
 <span class="dot" style="left:75%;animation-delay:4s"></span>
 <span class="dot" style="left:90%;animation-delay:7s"></span>
 
-<!-- audio -->
-<audio id="bgMusic" preload="auto" loop>
-    <source src="audio(1).mp3" type="audio/mpeg">
-</audio>
-
 <div class="card">
     <h1>Darling these are the little promises from me ❤️</h1>
 
@@ -134,39 +125,20 @@ h1 {
     <div class="promise">I promise I’ll never get angry or annoyed at you.</div>
     <div class="promise">I promise I’ll never leave you in any situation.</div>
 
-    
-
-    <button class="next-btn" onclick="goNext()" id="nextBtn">
-        Next 💝
-    </button>
+    <button class="next-btn" onclick="goNext()">Next 💝</button>
 
     <div class="heart">❤️</div>
 </div>
 
 <script>
-
-const nextBtn = document.getElementById("nextBtn");
-
-music.volume = 0.5;
-
-function toggleMusic() {
-    if (music.paused) {
-        music.play();
-        musicBtn.innerText = "⏸ Pause Music";
-        nextBtn.style.display = "inline-block";
-    } else {
-        music.pause();
-        musicBtn.innerText = "▶ Play Music";
-    }
-}
-
 function goNext(){
-    window.location.href = "https://shobithravish1-bit.github.io/wishes/"; 
+    window.location.href = "https://shobithravish1-bit.github.io/wishes/";
 }
 </script>
 
 </body>
 </html>
+
 
 
 
